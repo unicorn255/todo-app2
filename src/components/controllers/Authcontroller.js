@@ -28,6 +28,37 @@ user.save()
 })
 }
 
+const login = (req, res, next)=>{
+    let username = req.body.username
+    let passwort = req.body.password
+
+    User.findOne({$or:[{email:username}]})
+    .then(user => {
+        if(user){
+            bcrypt.compare(password, user.password, function(err, result){
+                if (err){
+                    res.json({
+                        error: err
+                    })
+                }
+                if(result){
+                    let token = jwt.sign({name: username}, 'VerySecretValue', {expiresIn: '2min'})
+                    res.json({
+                      message: "Login Successful!",
+                      token,
+                    })
+                }else{
+                    res.json({
+                        message: 'Password not Correct!',
+            })
+        }
+    })
+            res.json({
+                message: 'No User Found!'
+            })
+        }
+    })
+}
 module.exports = {
-    register
+    register, login
 }
