@@ -5,6 +5,7 @@ function ToDoItem({item}) {
   const {updateItem}=useContext(MyContext)
     return (
       <div className="todo-item">
+        <div className= "textalign"></div>
         <p>{item.text}</p>
         <div className="actions">
           <button
