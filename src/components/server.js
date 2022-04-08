@@ -22,5 +22,5 @@ app.listen(port, (req) => {
     console.log('Server is running http://localhost:'+port);
 });
 
-app.use('/api/employee', EmployeeRoute)
+
 app.use('/api', AuthRoute)

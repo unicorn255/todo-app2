@@ -30,7 +30,7 @@ user.save()
 
 const login = (req, res, next)=>{
     let username = req.body.username
-    let passwort = req.body.password
+    let password = req.body.password
 
     User.findOne({$or:[{email:username}]})
     .then(user => {

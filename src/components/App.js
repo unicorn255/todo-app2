@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 import "../css/App.scss";
 import Navigation from "./Navigation";
 import ToDosContainer from "./ToDosContainer";
